@@ -1,4 +1,4 @@
-PMLE.normal <-
+PMLE.Normal <-
 function(l.trunc,x.trunc,testimator=FALSE){
 
 m=length(l.trunc) ### sample size ###
@@ -60,7 +60,6 @@ c_dot=c(prop_dmul,prop_dmux,prop_dvarl,prop_dvarx,prop_dcovlx)
 
 se.prop=sqrt(t(c_dot)%*%(I_inv/m)%*%c_dot)
 
-
 mu_L=c(estim=mul,se=se.mul)
 mu_X=c(estim=mux,se=se.mux)
 var_L=c(estim=varl,se=se.varl)
@@ -69,6 +68,6 @@ cov_LX=c(estim=covlx,se=se.covlx)
 prop=c(estim=prop.est,se=se.prop)
 LR_test=c(LR=LR,pvalue=1-pchisq(LR,df=1))
 
-list(mu_L=mu_L,mu_X=mu_X,var_L=var_L,var_X=var_X,cov_LX=cov_LX,
-prob=prop,test=LR_test)
+list(mu_L=mu_L,mu_X=mu_X,var_L=var_L,var_X=var_X,cov_LX=cov_LX,prob=prop,test=LR_test)
+
 }
