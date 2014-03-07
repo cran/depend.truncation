@@ -1,5 +1,5 @@
-CHAIEB.Clayton.SS <-
-function(x.trunc,z.trunc,d,a=1/10){
+EMURA.Clayton <-
+function(x.trunc,z.trunc,d,a=1/10,plotX=TRUE,plotY=TRUE){
 
 m=length(x.trunc)
 
@@ -38,33 +38,39 @@ for(i in 1:m){
 pi.point=r.point/m ;pi.grid=r.grid/m
 
 #### Estimation of alpha #####
-x.orderx=x.trunc[order(x.trunc)] ;z.orderx=z.trunc[order(x.trunc)] ;d.orderx=d[order(x.trunc)]
-con=dis=0
-for(i in 2:m){
-  x=x.orderx[i] ;z=z.orderx[i]
-  for(j in 1:(i-1)){
-    x12=x
-    z12=min(z.orderx[j],z)
-    if(x12<z12){
-      dis=dis+d.orderx[i]*(z.orderx[j]>z) ;con=con+d.orderx[j]*(z.orderx[j]<z)
-    }
-  }
+old=0.00001
+repeat{
+  score=sum(d)-sum( old/(r.grid-1+old)  )
+  info=sum(  (r.grid-1)/(r.grid-1+old)^2  )
+  new=old+score/info
+  if(abs(old-new)<0.00001){break}
+  old=new
 }
-alpha.tau=dis/con
+alpha.cl=new
 
 temp=(d.o==0)&(r.diag>=m^a)
 
 ##### Estimation of c, Fx and Sy #####
-A=sum( (r.diag[temp]/m/sc.diag[temp])^(1-alpha.tau)-((r.diag[temp]-1)/m/sc.diag[temp])^(1-alpha.tau) )
-prop.tau=( 1/(A+(1/m)^(1-alpha.tau)) )^(1/(1-alpha.tau))
+A=sum( (r.diag[temp]/m/sc.diag[temp])^(1-alpha.cl)-((r.diag[temp]-1)/m/sc.diag[temp])^(1-alpha.cl) )
+prop.cl=( 1/(A+(1/m)^(1-alpha.cl)) )^(1/(1-alpha.cl))
 
-A=(prop.tau*r.diag/m/sc.diag)^(1-alpha.tau)-(prop.tau*(r.diag-1)/m/sc.diag)^(1-alpha.tau)
-A[r.diag<m^a]<-0
-Sy.tau=( 1-cumsum(A*dd.o) )^(1/(1-alpha.tau))
-A[1]=(prop.tau/m)^(1-alpha.tau)
-Fx.tau=( cumsum(A*(1-d.o)) )^(1/(1-alpha.tau))
+A=(prop.cl*r.diag/m/sc.diag)^(1-alpha.cl)-(prop.cl*(r.diag-1)/m/sc.diag)^(1-alpha.cl)
+A[r.diag<m^a]=0
+Sy.cl=( 1-cumsum(A*dd.o) )^(1/(1-alpha.cl))
+A[1]=(prop.cl/m)^(1-alpha.cl)
+Fx.cl=( cumsum(A*(1-d.o)) )^(1/(1-alpha.cl))
 
-Fx.tau=Fx.tau[d.o==0];Sy.tau=Sy.tau[d.o==1]
+Fx.cl=Fx.cl[d.o==0];Sy.cl=Sy.cl[d.o==1]
 
-list("alpha"=alpha.tau,c=prop.tau,Fx=Fx.tau,Sy=Sy.tau)
+if(plotX==TRUE){
+  plot(  sort(x.trunc),Fx.cl,type="s",xlim=c(min(x.trunc),max(x.trunc)),lwd=2,
+       xlab="Time",ylab="Distribution function of X" )
+}
+if(plotY==TRUE){
+  plot(  sort(z.trunc),Sy.cl,type="s",xlim=c(min(z.trunc),max(z.trunc)),lwd=2,
+       xlab="Time",ylab="Survival function of Y"  )
+}
+
+list("alpha"=alpha.cl,"tau"=-(alpha.cl-1)/(alpha.cl+1),c=prop.cl,Fx=Fx.cl,Sy=Sy.cl)
+
 }

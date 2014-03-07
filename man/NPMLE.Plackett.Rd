@@ -1,29 +1,37 @@
-\name{NPMLE.Normal.SS}
-\alias{NPMLE.Normal.SS}
+\name{NPMLE.Plackett}
+\alias{NPMLE.Plackett}
 %- Also NEED an '\alias' for EACH other topic documented here.
+
 \title{Semiparametric Inference for copula models with dependent truncation data}
+
 \description{Nonparametric maximum likelihood estimation for dependent truncation data under 
-the normal(Gaussian) copula models. The forms of the marginal distributions for X and Y are completely unspecified, but
-the parametric form of copula is specified as the normal(Gaussian) copula. 
+the Plackett copula models. The forms of the marginal distributions for X and Y are completely unspecified, but
+the parametric form of copula is specified as the Plackett copula. 
 }
+
 \usage{
-NPMLE.Normal.SS(x.trunc, y.trunc, x.fix = median(x.trunc), y.fix = median(y.trunc), Fx.plot = TRUE)
+NPMLE.Plackett(x.trunc, y.trunc,
+x.fix = median(x.trunc), y.fix = median(y.trunc), plotX = TRUE)
 }
 %- maybe also 'usage' for other objects documented here.
+
 \arguments{
   \item{x.trunc}{vector of variables satisfying x.trunc<=y.trunc}
   \item{y.trunc}{vector of variables satisfying x.trunc<=y.trunc}
   \item{x.fix}{vector of fixed points at which marginal distribution function of X is calculated}
   \item{y.fix}{vector of fixed points at which marginal survival function of Y are calculated}
-  \item{Fx.plot}{if TRUE, the culumative distribution function for X is plotted}
+  \item{plotX}{if TRUE, the culumative distribution function for X is plotted}
 }
+
+
 \details{
 The function produces the nonparametric maximum likelihood estimate (NPMLE) for the marginal distributions
- and the estimate of the association parameter under the normal(Gaussian) copula model. The method follows Emura & Wang (2012).
+ and the estimate of the association parameter under the Plackett copula model. The method follows Emura & Wang (2012).
 The maximization of the likelihood (L) is conducted by minimizing -logL by "nlm". Standard errors are calculated
 from the diagonal elements in the observed Fisher information matrix, which is obtained from the output of the "nlm".  
 The method can handle ties but cannot handle right-censoring.
 }
+
 \value{
 \item{alpha }{estimate of association parameter}
 \item{alpha_se }{standard error of the estimate of association parameter}
@@ -43,33 +51,47 @@ the maximization of the likelihood function is properly done. Please refer R fun
 \item{MinEigen}{Minimum eigenvalue of the Hessian matrix at the solution (positive if the solution is proper)}
 }
 
+
 \references{
 Emura, T. and Wang, W. 2012, Nonparametric maximum likelihood estimation for dependent truncation data based on copula.
 Journal of Multivariate Analysis, Special Issue in Copula Modeling & Dependence, in press, DOI: 10.1016/j.jmva.2012.03.012
 }
 \author{Takeshi EMURA}
 
+
 \examples{
-##### Generate independent truncated data with unit exponential marginals #####
+##### Generate truncated data from Plackett copula with unit exponential marginals #####
 set.seed(1)
 m=25 #### sample size ####
+alpha_true=1/5.11 #### Kendall's tau on (X,Y) = 0.5 ####
 x.trunc=y.trunc=numeric(m)
 l=1
 while(l<=m){
-  x=rexp(1,rate=1)
-  y=rexp(1,rate=1)
+  u=runif(1,min=0,max=1)
+  v=runif(1,min=0,max=1)
+  K=function(w){
+    A=sqrt( (1+(alpha_true-1)*(u+w))^2-4*alpha_true*(alpha_true-1)*u*w )  
+    2*v+(  1+(alpha_true-1)*u-(alpha_true+1)*w  )/A-1
+  }
+  low=0.00001*u
+  up=1-0.00001*v
+  for(j in 1:100){ #### Invert K(.) by the bisection method to ####
+    mid=(low+up)/2;M<-K(mid);U<-K(up)
+    if(M*U>0){up<-mid}else{low<-mid}
+  }
+  w=mid
+  x=-log(1-u);y=-log(w)
   if((x<y)){
   x.trunc[l]=x;y.trunc[l]=y
   l=l+1
   }
 }
 
-NPMLE.Normal.SS(x.trunc, y.trunc, x.fix =1, y.fix = 1, Fx.plot = TRUE)
+NPMLE.Plackett(x.trunc, y.trunc, x.fix =1, y.fix = 1, plotX = TRUE)
 
 #### compare the above estimate with the true value #####
-c(Fx_true=1-exp(-1),Sy_true=exp(-1))
+c(alpha_true=alpha_true,Fx_true=1-exp(-1),Sy_true=exp(-1))
 }
-
 
 \keyword{ Copula }
 \keyword{ Semiparametric method }% __ONLY ONE__ keyword per line

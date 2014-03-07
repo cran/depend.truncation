@@ -1,5 +1,5 @@
-EMURA.Frank.SS <-
-function(x.trunc,z.trunc,d,a=1/10){
+EMURA.Frank <-
+function(x.trunc,z.trunc,d,a=1/10,plotX=TRUE,plotY=TRUE){
 
 m=length(x.trunc)
 
@@ -87,6 +87,20 @@ Fx.cl=c(prop.cl/m,log( 1+(alpha.cl^(prop.cl/m)-1)/cumprod( (1/A)^(1-d.o[-1]) ),b
 
 Fx.cl=Fx.cl[d.o==0]; Sy.cl=Sy.cl[d.o==1]
 
-list("alpha"=1/alpha.cl,c=prop.cl,Fx=Fx.cl,Sy=Sy.cl)
-#### 0<alpha<1(positive association); alpha>1(negative association) ####  
+gamma=-log(alpha.cl)
+debye=function(x){ x/(exp(x)-1)}
+tau=-(1+4/gamma*(1/gamma*integrate(debye,0,gamma)$value-1))
+
+if(plotX==TRUE){
+  plot(  sort(x.trunc),Fx.cl,type="s",xlim=c(min(x.trunc),max(x.trunc)),lwd=2,
+       xlab="Time",ylab="Distribution function of X" )
+}
+if(plotY==TRUE){
+  plot(  sort(z.trunc),Sy.cl,type="s",xlim=c(min(z.trunc),max(z.trunc)),lwd=2,
+       xlab="Time",ylab="Survival function of Y"  )
+}
+
+list("alpha"=1/alpha.cl,"tau"=tau,c=prop.cl,Fx=Fx.cl,Sy=Sy.cl)
+#### 0<alpha<1(positive association); alpha>1(negative association) ####
+  
 }

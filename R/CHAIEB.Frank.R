@@ -1,5 +1,5 @@
-CHAIEB.Frank.SS <-
-function(x.trunc,z.trunc,d,a=1/10){
+CHAIEB.Frank <-
+function(x.trunc,z.trunc,d,a=1/10,plotX=TRUE,plotY=TRUE){
 
 m=length(x.trunc)
 
@@ -76,6 +76,20 @@ Fx.tau=c(prop.tau/m,log( 1+(alpha.tau^(prop.tau/m)-1)/cumprod( (1/A)^(1-d.o[-1])
 
 Fx.tau=Fx.tau[d.o==0]; Sy.tau=Sy.tau[d.o==1]
 
-list("alpha"=1/alpha.tau,c=prop.tau,Fx=Fx.tau,Sy=Sy.tau)
+gamma=-log(alpha.tau)
+debye=function(x){ x/(exp(x)-1)}
+tau=-(1+4/gamma*(1/gamma*integrate(debye,0,gamma)$value-1))
+
+if(plotX==TRUE){
+  plot(  sort(x.trunc),Fx.tau,type="s",xlim=c(min(x.trunc),max(x.trunc)),lwd=2,
+       xlab="Time",ylab="Distribution function of X" )
+}
+if(plotY==TRUE){
+  plot(  sort(z.trunc),Sy.tau,type="s",xlim=c(min(z.trunc),max(z.trunc)),lwd=2,
+       xlab="Time",ylab="Survival function of Y"  )
+}
+
+list("alpha"=1/alpha.tau,"tau"=tau,c=prop.tau,Fx=Fx.tau,Sy=Sy.tau)
 #### 0<alpha<1(positive association); alpha>1(negative association) ####
+
 }

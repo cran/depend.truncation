@@ -1,14 +1,14 @@
-\name{EMURA.Clayton.SS}
-\alias{EMURA.Clayton.SS}
+\name{EMURA.Frank}
+\alias{EMURA.Frank}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Semiparametric Inference for copula models with dependent truncation data}
+\title{Semi-parametric Inference for copula models with dependently truncated data}
 \description{Moment-based estimation based on dependent truncation data under 
-the Clayton copula model (Emura, Wang & Hung 2011).
+the Frank copula model (Emura, Wang & Hung 2011).
  The forms of the marginal distributions for X and Y are completely unspecified, but
-the parametric form of copula is specified as the Clayton copula. 
+the parametric form of copula is specified as the Frank copula. 
 }
 \usage{
-EMURA.Clayton.SS(x.trunc, z.trunc, d, a = 1/10)
+EMURA.Frank(x.trunc, z.trunc, d, a = 1/10, plotX = TRUE, plotY = TRUE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -16,19 +16,24 @@ EMURA.Clayton.SS(x.trunc, z.trunc, d, a = 1/10)
   \item{z.trunc}{vector of variables satisfying x.trunc<=z.trunc}
   \item{d}{censoring indicator(0=censoring,1=failure) for z.trunc}
   \item{a}{tuning parameter adjusting for small the risk sets (pp.360-361: Emura, Wang & Hung 2011 Sinica)}
+  \item{plotX}{if TRUE, plot the distribution function of X}
+  \item{plotY}{if TRUE, plot the survival function of Y}
 }
+
 \details{The function produces the moment-based estimate for the marginal distributions
- and the estimate of the association parameter under the Clayton copula model.
+ and the estimate of the association parameter under the Frank copula model.
 The method can handle right-censoring for Y in which Z=min(Y, C) and I(Y<=C) are observed with
 censoring variable C.
 }
 
 \value{
 \item{alpha }{association parameter}
+\item{tau }{Kendall's tau between X and Y}
 \item{c }{inclusion probability, defined by c=Pr(X<=Z)}
 \item{Fx }{marginal distribution function of X at at (ordered) observed points of X}
 \item{Sy }{margianl survival function of Y at (ordered) observed points of Y}
 }
+
 \references{
 T. Emura, W. Wang, H.-N. Hung (2011).
 Semiparametric Inference for Copula Models for Truncated Data, Sinica 21 349-367.
@@ -76,7 +81,7 @@ x.trunc=x
 z.trunc=y
 d=rep(1,length(x.trunc)) ### all data is not censored ###
 
-EMURA.Clayton.SS(x.trunc,z.trunc,d)[c("alpha","c")]
+EMURA.Frank(x.trunc,z.trunc,d)[c(1,2,3)]
 ######### The same numerical results as Emura, Wang & Hung (2011, Sinica) ###########
 }
 

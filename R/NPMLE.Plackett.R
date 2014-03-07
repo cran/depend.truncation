@@ -1,5 +1,5 @@
-NPMLE.Plackett.SS <-
-function(x.trunc,y.trunc,x.fix = median(x.trunc), y.fix = median(y.trunc),Fx.plot = TRUE){
+NPMLE.Plackett <-
+function(x.trunc,y.trunc,x.fix = median(x.trunc), y.fix = median(y.trunc),plotX = TRUE){
 
 m=length(x.trunc)
 
@@ -91,7 +91,7 @@ Sy_fix = exp(-Ay_fix)
 SE_Fx = Fx_fix * SE_Hx
 SE_Sy = Sy_fix * SE_Ay
 
-if (Fx.plot == TRUE) {
+if (plotX == TRUE) {
   plot(x.ox, Fx, type = "s", xlab = "x", ylab = "Fx(x): Distribution function of X")
 }
 

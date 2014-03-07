@@ -1,13 +1,17 @@
-\name{NPMLE.Frank.SS}
-\alias{NPMLE.Frank.SS}
+\name{NPMLE.Normal}
+\alias{NPMLE.Normal}
 %- Also NEED an '\alias' for EACH other topic documented here.
+
 \title{Semiparametric Inference for copula models with dependent truncation data}
+
 \description{Nonparametric maximum likelihood estimation for dependent truncation data under 
-the Frank copula models. The forms of the marginal distributions for X and Y are completely unspecified, but
-the parametric form of copula is specified as the Frank copula. 
+the normal(Gaussian) copula models. The forms of the marginal distributions for X and Y are completely unspecified, but
+the parametric form of copula is specified as the normal(Gaussian) copula. 
 }
+
 \usage{
-NPMLE.Frank.SS(x.trunc, y.trunc, x.fix = median(x.trunc), y.fix = median(y.trunc), Fx.plot = TRUE)
+NPMLE.Normal(x.trunc, y.trunc,
+x.fix = median(x.trunc), y.fix = median(y.trunc), plotX = TRUE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -15,15 +19,17 @@ NPMLE.Frank.SS(x.trunc, y.trunc, x.fix = median(x.trunc), y.fix = median(y.trunc
   \item{y.trunc}{vector of variables satisfying x.trunc<=y.trunc}
   \item{x.fix}{vector of fixed points at which marginal distribution function of X is calculated}
   \item{y.fix}{vector of fixed points at which marginal survival function of Y are calculated}
-  \item{Fx.plot}{if TRUE, the culumative distribution function for X is plotted}
+  \item{plotX}{if TRUE, the culumative distribution function for X is plotted}
 }
+
 \details{
 The function produces the nonparametric maximum likelihood estimate (NPMLE) for the marginal distributions
- and the estimate of the association parameter under the Frank copula model. The method follows Emura & Wang (2012).
+ and the estimate of the association parameter under the normal(Gaussian) copula model. The method follows Emura & Wang (2012).
 The maximization of the likelihood (L) is conducted by minimizing -logL by "nlm". Standard errors are calculated
 from the diagonal elements in the observed Fisher information matrix, which is obtained from the output of the "nlm".  
 The method can handle ties but cannot handle right-censoring.
 }
+
 \value{
 \item{alpha }{estimate of association parameter}
 \item{alpha_se }{standard error of the estimate of association parameter}
@@ -42,31 +48,18 @@ the maximization of the likelihood function is properly done. Please refer R fun
 \item{Grad}{L_2 norm for the gradient vector at the solution (close to zero if the solution is proper)}
 \item{MinEigen}{Minimum eigenvalue of the Hessian matrix at the solution (positive if the solution is proper)}
 }
+
 \references{
 Emura, T. and Wang, W. 2012, Nonparametric maximum likelihood estimation for dependent truncation data based on copula.
 Journal of Multivariate Analysis, Special Issue in Copula Modeling & Dependence, in press, DOI: 10.1016/j.jmva.2012.03.012
 }
 \author{Takeshi EMURA}
 
+
 \examples{
-##### Generate independent truncated data with unit exponential marginals #####
-set.seed(1)
-m=35 #### sample size ####
-x.trunc=y.trunc=numeric(m)
-l=1
-while(l<=m){
-  x=rexp(1,rate=1)
-  y=rexp(1,rate=1)
-  if((x<y)){
-  x.trunc[l]=x;y.trunc[l]=y
-  l=l+1
-  }
-}
-
-NPMLE.Frank.SS(x.trunc, y.trunc, x.fix =1, y.fix = 1, Fx.plot = TRUE)
-
-#### compare the above estimate with the true value #####
-c(Fx_true=1-exp(-1),Sy_true=exp(-1))
+x.trunc=c(0.53, 0.43, 1.63, 0.98, 0.62)
+y.trunc=c(1.20, 4.93, 2.09, 2.57, 1.52)
+NPMLE.Normal(x.trunc, y.trunc, x.fix =1, y.fix = 2, plotX = TRUE)
 }
 
 \keyword{ Copula }
