@@ -2,10 +2,10 @@
 \alias{NPMLE.Plackett}
 %- Also NEED an '\alias' for EACH other topic documented here.
 
-\title{Semiparametric Inference for copula models with dependent truncation data}
+\title{Semiparametric Inference for Copula Models with Dependent Truncation Data}
 
 \description{Nonparametric maximum likelihood estimation for dependent truncation data under 
-the Plackett copula models. The forms of the marginal distributions for X and Y are completely unspecified, but
+the Plackett copula models (Emura & Wang, 2012). The forms of the marginal distributions for X and Y are completely unspecified, but
 the parametric form of copula is specified as the Plackett copula. 
 }
 
@@ -53,8 +53,7 @@ the maximization of the likelihood function is properly done. Please refer R fun
 
 
 \references{
-Emura, T. and Wang, W. 2012, Nonparametric maximum likelihood estimation for dependent truncation data based on copula.
-Journal of Multivariate Analysis, Special Issue in Copula Modeling & Dependence, in press, DOI: 10.1016/j.jmva.2012.03.012
+Emura T, Wang W (2012)  Nonparametric maximum likelihood estimation for dependent truncation data based on copulas, Journal of Multivariate Analysis 110, 171-88
 }
 \author{Takeshi EMURA}
 

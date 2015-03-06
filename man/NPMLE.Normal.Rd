@@ -2,10 +2,10 @@
 \alias{NPMLE.Normal}
 %- Also NEED an '\alias' for EACH other topic documented here.
 
-\title{Semiparametric Inference for copula models with dependent truncation data}
+\title{Semiparametric Inference for Copula Models with Dependent Truncation Data}
 
 \description{Nonparametric maximum likelihood estimation for dependent truncation data under 
-the normal(Gaussian) copula models. The forms of the marginal distributions for X and Y are completely unspecified, but
+the normal(Gaussian) copula models (Emura & Wang, 2012). The forms of the marginal distributions for X and Y are completely unspecified, but
 the parametric form of copula is specified as the normal(Gaussian) copula. 
 }
 
@@ -50,8 +50,7 @@ the maximization of the likelihood function is properly done. Please refer R fun
 }
 
 \references{
-Emura, T. and Wang, W. 2012, Nonparametric maximum likelihood estimation for dependent truncation data based on copula.
-Journal of Multivariate Analysis, Special Issue in Copula Modeling & Dependence, in press, DOI: 10.1016/j.jmva.2012.03.012
+Emura T, Wang W (2012)  Nonparametric maximum likelihood estimation for dependent truncation data based on copulas, Journal of Multivariate Analysis 110, 171-88
 }
 \author{Takeshi EMURA}
 
@@ -59,7 +58,7 @@ Journal of Multivariate Analysis, Special Issue in Copula Modeling & Dependence,
 \examples{
 x.trunc=c(0.53, 0.43, 1.63, 0.98, 0.62)
 y.trunc=c(1.20, 4.93, 2.09, 2.57, 1.52)
-NPMLE.Normal(x.trunc, y.trunc, x.fix =1, y.fix = 2, plotX = TRUE)
+# NPMLE.Normal(x.trunc, y.trunc, x.fix =1, y.fix = 2, plotX = TRUE)
 }
 
 \keyword{ Copula }

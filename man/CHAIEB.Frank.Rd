@@ -1,9 +1,9 @@
 \name{CHAIEB.Frank}
 \alias{CHAIEB.Frank}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Semi-parametric Inference for copula models with dependently truncated data}
-\description{Moment-based estimation based on dependent truncation data under 
-the Frank copula model(Lakhal-Chaieb, Rivest & Abdous 2006).
+\title{Semi-Parametric Inference for Copula Models with Dependently Truncated Data}
+\description{A copula-based estimation based on dependent truncation data under 
+the Frank copula model(Lakhal-Chaieb, Rivest & Abdous 2006; Emura & Murotani 2015).
  The forms of the marginal distributions for X and Y are completely unspecified, but
 the parametric form of copula is specified as the Frank copula. 
 }
@@ -35,8 +35,9 @@ censoring variable C.
 }
 
 \references{
-L. Lakhal-Chaieb, L.-P. Rivest, B. Abdous, (2006).
- Estimating survival under a dependent truncation, Biometrika 93 655-669.
+Chaieb L, Rivest LP, Abdous B (2006), Estimating Survival Under a Dependent Truncation, Biometrika 93: 655-669.
+
+Emura T, Murotani K (2015), An Algorithm for Estimating Survival Under a Copula-based Dependent Truncation Model, TEST. DOI: 10.1007/s11749-015-0432-8
 }
 \author{Takeshi EMURA}
 
@@ -83,7 +84,7 @@ z.trunc=y
 d=rep(1,length(x.trunc)) ### all data is not censored ###
 
 CHAIEB.Frank(x.trunc,z.trunc,d)[c(1,2,3)]
-######### The same numerical results as Emura, Wang & Hung (2011, Sinica) ###########
+######### The same numerical results as Table 3 of Emura et al. (2011) ###########
 }
 
 \keyword{ Copula }

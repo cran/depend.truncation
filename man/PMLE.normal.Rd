@@ -1,7 +1,7 @@
 \name{PMLE.Normal}
 \alias{PMLE.Normal}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Parametric Inference for models with dependent truncation data}
+\title{Parametric Inference for Models with Dependent Truncation Data}
 \description{Maximum likelihood estimation (MLE) for dependent truncation data under 
 the bivariate normal distribution. A bivariate normal distribution is assumed for bivariate
  random variables (L, X). The truncated data (L_j, X_j), subject to L_j<=X_j for all j=1, ..., n,
@@ -32,8 +32,10 @@ and variable of interest via likelihood ratio test. The MLE is obtained by minim
  \item{test }{ Likelihood ratio statistic and p-value}
 }
 \references{
-Emura, T. and Konno, Y. 2012, Multivariate Normal Distribution Approaches for Dependently Truncated Data.
+Emura T, Konno Y (2012), Multivariate Normal Distribution Approaches for Dependently Truncated Data.
 Statistical Papers 53 (No.1), 133-149.
+
+Emura T, Konno Y (2014), Erratum to: Multivariate Normal Distribution Approaches for Dependently Truncated Data, Statistical Papers 55 (No.4): 1233-36
 }
 \author{Takeshi EMURA}
 %% ~Make other sections like Warning with \section{Warning }{....} ~

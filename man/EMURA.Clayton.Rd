@@ -1,9 +1,9 @@
 \name{EMURA.Clayton}
 \alias{EMURA.Clayton}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Semi-parametric Inference for copula models with dependently truncated data}
-\description{Moment-based estimation based on dependent truncation data under 
-the Clayton copula model (Emura, Wang & Hung 2011).
+\title{Semi-parametric Inference for Copula Models with Dependently Truncated Data}
+\description{A copula-based estimation based on dependent truncation data under 
+the Clayton copula model (Emura, Wang & Hung 2011; Emura & Murotani 2015).
  The forms of the marginal distributions for X and Y are completely unspecified, but
 the parametric form of copula is specified as the Clayton copula. 
 }
@@ -36,8 +36,9 @@ censoring variable C.
 \item{Sy }{margianl survival function of Y at (ordered) observed points of Y}
 }
 \references{
-T. Emura, W. Wang, H.-N. Hung (2011).
-Semiparametric Inference for Copula Models for Truncated Data, Sinica 21 349-367.
+Emura T, Wang W, Hung HN (2011), Semiparametric Inference for Copula Models for Truncated Data, Stat Sinica 21: 349-367.
+
+Emura T, Murotani K (2015), An Algorithm for Estimating Survival Under a Copula-based Dependent Truncation Model, TEST. DOI: 10.1007/s11749-015-0432-8
 }
 \author{Takeshi EMURA}
 
@@ -83,7 +84,7 @@ z.trunc=y
 d=rep(1,length(x.trunc)) ### all data is not censored ###
 
 EMURA.Clayton(x.trunc,z.trunc,d)[c(1,2,3)]
-######### The same numerical results as Emura, Wang & Hung (2011, Sinica) ###########
+######### The same numerical results as Table 3 of Emura et al. (2011) ###########
 }
 
 \keyword{ Copula }
