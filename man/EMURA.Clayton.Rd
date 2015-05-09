@@ -40,7 +40,7 @@ Emura T, Wang W, Hung HN (2011), Semiparametric Inference for Copula Models for 
 
 Emura T, Murotani K (2015), An Algorithm for Estimating Survival Under a Copula-based Dependent Truncation Model, TEST. DOI: 10.1007/s11749-015-0432-8
 }
-\author{Takeshi EMURA}
+\author{Takeshi Emura}
 
 \examples{
 ###########  AIDS data of Kalbfleisch & Lawless (1989, JASA) #############
