@@ -31,12 +31,14 @@ Only the univariate regression (only one covariate) is allowed.
 \value{
   \item{beta }{inference results for beta}
   \item{gamma }{inference results for gamma}
-  \item{beta_LY }{Lai and Ying's estimator}
+  \item{beta_LY }{the estimator of Lai & Ying (1991)}
   \item{S2_Minimum }{minimum of the objective function}
   \item{detail }{detailed results for minimizing the estimating objective function "optim"}
 }
 \references{
-Emura T, Wang W (2015), Semiparametric Inference for an Accelerated Failure Time Model with Dependent Truncation, to appear, Annals of the Institute of Statistical Mathematics.
+Emura T, Wang W (2015), Semiparametric Inference for an Accelerated Failure Time Model with Dependent Truncation, accepted, Annals of the Institute of Statistical Mathematics.
+
+Lai TL, Ying Z (1991), Rank Regression Methods for Left-Truncated and Right-Censored Data. Annals of Statistics 19: 531-556.
 }
 \author{Takeshi Emura}
 
@@ -68,15 +70,14 @@ dependAFT.reg(t.trunc,y.trunc,d,x1.trunc,LY=FALSE,beta1_low=-5,beta1_up=5)
 
 #### Channing hourse data analysis; Section 5 of Emura and Wang (2015) ##### 
 # library(KMsurv)
-# Please load "KMsurv" package ###
 # data(channing)
 # y.trunc=log(channing$age)
 # t.trunc=log(channing$ageentry)
 # d=channing$death
 # x1.trunc=as.numeric(channing$gender==1)
 
-# dependAFT.reg(t.trunc,y.trunc,x1.trunc,beta1_low=-0.2,beta1_up=0.2)
-# dependAFT.reg(t.trunc,y.trunc,x1.trunc,LY=TRUE,alpha=2,beta1_low=-0.2,beta1_up=0.2)
+# dependAFT.reg(t.trunc,y.trunc,d,x1.trunc,beta1_low=-0.2,beta1_up=0.2)
+# dependAFT.reg(t.trunc,y.trunc,d,x1.trunc,LY=TRUE,alpha=2,beta1_low=-0.2,beta1_up=0.2)
 }
 
 % Add one or more standard keywords, see file 'KEYWORDS' in the

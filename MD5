@@ -1,4 +1,4 @@
-d298c78601d08177ce9e4a7fa37cdd7e *DESCRIPTION
+4a41fbd38c245423e38cdb6e8b7040b1 *DESCRIPTION
 7fb21261110bf7426bf47fe2bb4b4309 *NAMESPACE
 09beba7cbbeaafd6dabec3b4096c82ca *R/CHAIEB.Clayton.R
 fa081a5e5b1f39e554455c4ef29645a5 *R/CHAIEB.Frank.R
@@ -21,5 +21,5 @@ cf72a0814d2843fc4c8c37b99ed3b023 *man/NPMLE.Normal.Rd
 54dcf5e71c251cd0d9bdec4368836b23 *man/NPMLE.Plackett.Rd
 3f9496f35aa98eb3efe53ff497e0c7e7 *man/PMLE.Normal.Rd
 842af137293afb864845500ee02ffb0e *man/centenarian.Rd
-998b56d761596a50483c009559bfa3d0 *man/depend.truncation-package.Rd
-975af2122fee13f1533e9406f9c03c75 *man/dependAFT.reg.Rd
+2024240e31a3fde4600b61b0ee453c43 *man/depend.truncation-package.Rd
+d040e535fc044247bf14d1517f002888 *man/dependAFT.reg.Rd

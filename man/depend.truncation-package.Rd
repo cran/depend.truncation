@@ -18,8 +18,8 @@ Semi-parametric approaches are based on Chaieb et al. (2006), Emura et al. (2011
 \tabular{ll}{
 Package: \tab depend.truncation\cr
 Type: \tab Package\cr
-Version: \tab 2.3\cr
-Date: \tab 2015-05-09\cr
+Version: \tab 2.4\cr
+Date: \tab 2015-05-28\cr
 License: \tab GPL-2\cr
 }
 }
@@ -34,9 +34,9 @@ Emura T, Wang W, Hung HN (2011), Semiparametric Inference for Copula Models for 
 Emura T, Konno Y (2012), Multivariate Normal Distribution Approaches for Dependently Truncated Data.
 Statistical Papers 53 (No.1), 133-149.
 
-Emura T, Wang, W (2012), Nonparametric Maximum Likelihood Estimation for Dependent Truncation Data Based on Copulas, Journal of Multivariate Analysis 110, 171-88
+Emura T, Wang W (2012), Nonparametric Maximum Likelihood Estimation for Dependent Truncation Data Based on Copulas, Journal of Multivariate Analysis 110, 171-88
 
 Emura T, Murotani K (2015), An Algorithm for Estimating Survival Under a Copula-based Dependent Truncation Model, TEST. DOI: 10.1007/s11749-015-0432-8
 
-Emura T, Wang W (2015), Semiparametric Inference for an Accelerated Failure Time Model with Dependent Truncation, to appear, Annals of the Institute of Statistical Mathematics.
+Emura T, Wang W (2015), Semiparametric Inference for an Accelerated Failure Time Model with Dependent Truncation, accepted, Annals of the Institute of Statistical Mathematics.
 }
