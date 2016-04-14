@@ -36,7 +36,7 @@ censoring variable C.
 \references{
 Chaieb L, Rivest LP, Abdous B (2006), Estimating Survival Under a Dependent Truncation, Biometrika 93: 655-669.
 
-Emura T, Murotani K (2015), An Algorithm for Estimating Survival Under a Copula-based Dependent Truncation Model, TEST. DOI: 10.1007/s11749-015-0432-8
+Emura T, Murotani K (2015), An Algorithm for Estimating Survival Under a Copula-based Dependent Truncation Model, TEST 24 (No.4): 734-751.
 }
 \author{Takeshi EMURA}
 

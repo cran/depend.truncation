@@ -7,13 +7,14 @@ the bivariate normal distribution. A bivariate normal distribution is assumed fo
  random variables (L, X). The truncated data (L_j, X_j), subject to L_j<=X_j for all j=1, ..., n,
  are used to obtain the MLE for the population parameters of (L, X).}
 \usage{
-PMLE.Normal(l.trunc, x.trunc, testimator = FALSE)
+PMLE.Normal(l.trunc, x.trunc, testimator = FALSE,GOF=TRUE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{l.trunc}{vector of truncation variables satisfying l.trunc<=x.trunc}
   \item{x.trunc}{vector of variables satisfying l.trunc<=x.trunc}
   \item{testimator}{if TRUE, testimator is computed instead of MLE}
+  \item{GOF}{if TRUE, goodness-of-fit test is performed}
 }
 \details{
 PMLE.Normal performs the maximum likelihood estimation for dependently left-truncated data under 
@@ -28,8 +29,10 @@ and variable of interest via likelihood ratio test. The MLE is obtained by minim
  \item{var_L }{variance of L and its standard error}
  \item{var_X }{variance of X and its standard error}
  \item{cov_LX }{covariance between L and X and its standard error}
- \item{prob }{ inclusion probability, defined by Pr(L<=X), and its standard error}
+ \item{c }{ inclusion probability, defined by c=Pr(L<=X), and its standard error}
  \item{test }{ Likelihood ratio statistic and p-value}
+ \item{C }{ Cramer-von Mises goodness-of-fit test statistics}
+ \item{K }{ Kolmogorov-Smirnov goodness-of-fit test statistics}
 }
 \references{
 Emura T, Konno Y (2012), Multivariate Normal Distribution Approaches for Dependently Truncated Data.

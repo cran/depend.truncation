@@ -1,5 +1,5 @@
 PMLE.Normal <-
-function(l.trunc,x.trunc,testimator=FALSE){
+function(l.trunc,x.trunc,testimator=FALSE,GOF=TRUE){
 
 m=length(l.trunc) ### sample size ###
 
@@ -68,6 +68,42 @@ cov_LX=c(estim=covlx,se=se.covlx)
 prop=c(estim=prop.est,se=se.prop)
 LR_test=c(LR=LR,pvalue=1-pchisq(LR,df=1))
 
-list(mu_L=mu_L,mu_X=mu_X,var_L=var_L,var_X=var_X,cov_LX=cov_LX,prob=prop,test=LR_test)
+AIC_res = round(-2*l.max+2*5,2)
+BIC_res = round(-2*l.max+5*log(m),2)
+
+C.test=K.test=NULL
+F_par=F_emp=NULL
+
+if(GOF==TRUE){
+
+F.func=function(ll,xx){
+  f_par=function(s){
+    A=covlx/sqrt(varl)*s
+    B=sqrt(varx-covlx^2/varl)
+    C=pnorm((xx-mux-A)/B)-pnorm((mul-mux+sqrt(varl)*s-A)/B)
+    C*dnorm(s)
+  }
+  Up_par=(ll-mul)/sqrt(varl)
+  integrate(f_par,-Inf,Up_par)$value
+}
+
+#prop.est=F.func(Inf,Inf)
+F_par=F_emp=numeric(m)
+for(i in 1:m){
+  F_par[i]=F.func(l.trunc[i],x.trunc[i])/prop.est
+  F_emp[i]=mean( (l.trunc<=l.trunc[i])&(x.trunc<=x.trunc[i]) )
+}
+C.test=sum( (F_emp-F_par)^2 )
+K.test=max( abs( F_emp-F_par ) )
+
+plot(F_emp,F_par,xlab="F_empirical",ylab="F_parametric",xlim=c(0,1),ylim=c(0,1))
+lines(x = c(0,1), y = c(0,1))
+
+}
+
+list(mu_L=mu_L,mu_X=mu_X,var_L=var_L,var_X=var_X,cov_LX=cov_LX,
+     c=prop,test=LR_test,
+     ML=l.max,AIC=AIC_res,BIC=BIC_res,
+     C=C.test,K=K.test,F_empirical=F_emp,F_parametric=F_par)
 
 }

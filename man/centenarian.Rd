@@ -37,7 +37,7 @@ See also the original reference Sibuya & Hanayama (2004).
 \references{
 Sibuya M, Hanayama N (2004), Estimation of Human Longevity Distribution Based on Tabulated Statistics. Proceeding of ISM 52: 117-34
 
-Emura T, Murotani K (2015), An Algorithm for Estimating Survival Under a Copula-based Dependent Truncation Model, TEST. DOI: 10.1007/s11749-015-0432-8
+Emura T, Murotani K (2015), An Algorithm for Estimating Survival Under a Copula-based Dependent Truncation Model, TEST 24 (No.4): 734-751.
 }
 \examples{
 ## Below is the centenarians data analysis of Emura & Murotani (2015) ##
@@ -65,6 +65,6 @@ x.trunc=x.trunc+runif(length(x.trunc),min=-0.01,max=0)
 z.trunc=z.trunc+runif(length(z.trunc),min=0,max=0.01)
 
 ### Copula-based estimator ####
-CHAIEB.Frank(x.trunc, z.trunc, d, a = 1/10)
+## CHAIEB.Frank(x.trunc, z.trunc, d, a = 1/10)
 }
 \keyword{datasets}

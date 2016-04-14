@@ -61,12 +61,9 @@ x1.trunc=c(
   0.21, 0.93, 0.60, 0.45, 0.41, 0.86, 0.90, 0.76, 0.93, 0.27, 0.13, 0.82, 0.17, 0.63, 0.31,
   0.13, 0.48, 0.32)
 
-### Initial value based on Lai & Ying estimator ###
-dependAFT.reg(t.trunc,y.trunc,d,x1.trunc,alpha=2,LY=TRUE,beta1_low=-5,beta1_up=5)
-
-### Initial value based on the null value (beta=0,gamma=0) ###
+### Data analysis in Emura and Wang (2015) ###
+# dependAFT.reg(t.trunc,y.trunc,d,x1.trunc,alpha=2,LY=TRUE,beta1_low=-5,beta1_up=5)
 dependAFT.reg(t.trunc,y.trunc,d,x1.trunc,LY=FALSE,beta1_low=-5,beta1_up=5)
-
 
 #### Channing hourse data analysis; Section 5 of Emura and Wang (2015) ##### 
 # library(KMsurv)

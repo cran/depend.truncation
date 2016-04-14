@@ -38,7 +38,7 @@ censoring variable C.
 \references{
 Emura T, Wang W, Hung HN (2011), Semiparametric Inference for Copula Models for Truncated Data, Stat Sinica 21: 349-367.
 
-Emura T, Murotani K (2015), An Algorithm for Estimating Survival Under a Copula-based Dependent Truncation Model, TEST. DOI: 10.1007/s11749-015-0432-8
+Emura T, Murotani K (2015), An Algorithm for Estimating Survival Under a Copula-based Dependent Truncation Model, TEST 24 (No.4): 734-751.
 }
 \author{Takeshi Emura}
 

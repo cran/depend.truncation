@@ -1,2 +1,6 @@
 exportPattern("^[[:alpha:]]+")
 import(mvtnorm)
+importFrom("graphics", "abline", "par", "plot", "points", "lines")
+importFrom("stats", "IQR", "cov", "dnorm", "integrate", "median",
+     "nlm", "optim", "pchisq", "pnorm", "qchisq", "qnorm",
+     "rnorm", "sd", "uniroot", "var", "cor", "runif")
