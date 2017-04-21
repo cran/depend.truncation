@@ -1,12 +1,12 @@
-\name{PMLE.Clayton.Weibull}
-\alias{PMLE.Clayton.Weibull}
+\name{PMLE.Clayton.Exponential}
+\alias{PMLE.Clayton.Exponential}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Parametric Inference for Weibull Models with Dependent Truncation Data}
+\title{Parametric Inference for Exponential Models with Dependent Truncation Data}
 \description{Maximum likelihood estimation (MLE) for dependent truncation data under 
-the Clayton copula with Weibull margins for a bivariate lifetimes (L, X). The truncated data (L_j, X_j), subject to L_j<=X_j for all j=1, ..., n,
+the Clayton copula with Exponential margins for a bivariate lifetimes (L, X). The truncated data (L_j, X_j), subject to L_j<=X_j for all j=1, ..., n,
  are used to obtain the MLE for the population parameters of (L, X).}
 \usage{
-PMLE.Clayton.Weibull(l.trunc, x.trunc, GOF = TRUE)
+PMLE.Clayton.Exponential(l.trunc, x.trunc, GOF = TRUE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -14,15 +14,12 @@ PMLE.Clayton.Weibull(l.trunc, x.trunc, GOF = TRUE)
   \item{x.trunc}{vector of variables satisfying l.trunc<=x.trunc}
   \item{GOF}{if TRUE, a goodness-of-fit test statistics is computed}
 }
-
-\details{Relevant paper is submitted for review}
+\details{Original paper is submitted for review}
 \value{
  \item{n }{sample size}
  \item{alpha }{alpha and its standard error}
  \item{lambda_L }{hazard of L and its standard error}
  \item{lambda_X }{hazard of X and its standard error}
- \item{nu_L }{shape parameter of L and its standard error}
- \item{nu_X }{shape parameter of X and its standard error}
  \item{c }{ inclusion probability, defined by c=Pr(L<=X)}
  \item{C }{ Cramer-von Mises goodness-of-fit test statistics}
  \item{K }{ Kolmogorov-Smirnov goodness-of-fit test statistics}
@@ -30,7 +27,7 @@ PMLE.Clayton.Weibull(l.trunc, x.trunc, GOF = TRUE)
 \references{
 Emura T, Pan CH (2017-), Parametric likelihood inference and goodness-of-fit for dependently left-truncated data, a copula-based approach, submitted for publication.
 }
-\author{Takeshi Emura}
+\author{Takeshi Emura, Chi-Hung Pan}
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 \examples{
 l.trunc=c(22.207,23.002,23.982,28.551,21.789,17.042,25.997,23.220,18.854,21.857,
@@ -62,7 +59,7 @@ u.min=10
 l.trunc=l.trunc[-41]-u.min
 x.trunc=x.trunc[-41]-u.min
 
-PMLE.Clayton.Weibull(l.trunc,x.trunc)
+PMLE.Clayton.Exponential(l.trunc,x.trunc)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

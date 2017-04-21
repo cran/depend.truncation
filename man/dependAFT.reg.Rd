@@ -36,7 +36,7 @@ Only the univariate regression (only one covariate) is allowed.
   \item{detail }{detailed results for minimizing the estimating objective function "optim"}
 }
 \references{
-Emura T, Wang W (2015), Semiparametric Inference for an Accelerated Failure Time Model with Dependent Truncation, accepted, Annals of the Institute of Statistical Mathematics.
+Emura T, Wang W (2016), Semiparametric Inference for an Accelerated Failure Time Model with Dependent Truncation, Ann Inst Stat Math 68 (5): 1073-94.
 
 Lai TL, Ying Z (1991), Rank Regression Methods for Left-Truncated and Right-Censored Data. Annals of Statistics 19: 531-556.
 }
