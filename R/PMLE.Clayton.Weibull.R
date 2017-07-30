@@ -1,5 +1,5 @@
 PMLE.Clayton.Weibull <-
-function(l.trunc,x.trunc,GOF=TRUE){
+function(l.trunc,x.trunc,GOF=TRUE,Err=2,alpha_max=20,alpha_min=10^-6){
 l=l.trunc
 x=x.trunc
   
@@ -1319,7 +1319,7 @@ repeat{
   nuX_tuda = par_new[5,1]
   e =rel_tol_func(-6)
   Error2 = try(max(eigen(hessian_func(e))$value),silent = T)
-  Error3 = ( exp(par_new[1,1]) <= 10^-6 | exp(par_new[1,1]) > 20 | Error1 > 2 
+  Error3 = ( exp(par_new[1,1]) <= alpha_min | exp(par_new[1,1]) > alpha_max | Error1 > Err 
              |min(exp(par_new[2:5,1])) <= 10^-8 |AI/100 == floor(AI/100)  
              | try(Error2*0,silent=T)!=0 )     
   if( Error1 <10^-4 & Error2 < 0 ){break}  
@@ -1339,7 +1339,7 @@ repeat{
       nuX_tuda = par_new[5,1]
       e =rel_tol_func(-6)
       Error2 = try(max(eigen(hessian_func(e))$value),silent = T)  
-      if( exp(par_new[1,1]) > 10^-6 & exp(par_new[1,1]) < 20 & 
+      if( exp(par_new[1,1]) > alpha_min & exp(par_new[1,1]) < alpha_max & 
             try(Error2*0,silent=T)==0 ){break}    
     }
   }
@@ -1376,16 +1376,16 @@ se_mu=sqrt(t(matrix(c(0,0,g_lamdaX_func(lamdaX_tuda,nuX_tuda),0,
                       g_nuX_func(lamdaX_tuda,nuX_tuda)),5,1))%*%TT%*%
              matrix(c(0,0,g_lamdaX_func(lamdaX_tuda,nuX_tuda),0,
                       g_nuX_func(lamdaX_tuda,nuX_tuda)),5,1))
-alpha_res = c(EST = round(alpha,4),SE = round(se_alpha,4))
-lambda_L_res = c(EST = round(lamdaL,6),SE = round(se_lamdaL,6))
-lambda_X_res = c(EST = round(lamdaX,7),SE = round(se_lamdaX,7))
-nu_L_res = c(EST = round(nuL,4),SE = round(se_nuL,4))
-nu_X_res = c(EST = round(nuX,4),SE = round(se_nuX,4))
-mu_res = c(EST = round(mean_X,4),SE = round(se_mu,4))
+alpha_res = c(Estimate=alpha,SE=se_alpha)
+lambda_L_res = c(Estimate=lamdaL,SE=se_lamdaL)
+lambda_X_res = c(Estimate=lamdaX,SE=se_lamdaX)
+nu_L_res = c(Estimate=nuL,SE=se_nuL)
+nu_X_res = c(Estimate=nuX,SE=se_nuX)
+mu_res = c(Estimate=mean_X,SE=se_mu)
 LL=-n*log(integrate(O_h_func, lower = 0, upper = 1)$value)+
   sum(log(O_pdf_func(alpha,lamdaL,lamdaX,nuL,nuX,l,x)))
-AIC_res = round(-2*LL+2*5,2)
-BIC_res = round(-2*LL+5*log(n),2)
+AIC_res=-2*LL+2*5
+BIC_res=-2*LL+5*log(n)
 
 C.test=K.test=NULL
 F_par=F_emp=prop=NULL
@@ -1420,7 +1420,7 @@ lines(x = c(0,1), y = c(0,1))
 }
 
 list(n=n, alpha = alpha_res,lambda_L = lambda_L_res,lambda_X = lambda_X_res,
-     nu_L = nu_L_res,nu_X = nu_X_res,mu = mu_res,
+     nu_L = nu_L_res,nu_X = nu_X_res,mean_X = mu_res,
      ML=LL,AIC=AIC_res,BIC=BIC_res,Iteration=AI,
      c=prop,C=C.test,K=K.test,F_empirical=F_emp,F_parametric=F_par)
 }

@@ -6,29 +6,35 @@
 the Clayton copula with Weibull margins for a bivariate lifetimes (L, X). The truncated data (L_j, X_j), subject to L_j<=X_j for all j=1, ..., n,
  are used to obtain the MLE for the population parameters of (L, X).}
 \usage{
-PMLE.Clayton.Weibull(l.trunc, x.trunc, GOF = TRUE)
+PMLE.Clayton.Weibull(l.trunc, x.trunc, GOF = TRUE,
+ Err=2,alpha_max=20,alpha_min=10^-6)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{l.trunc}{vector of truncation variables satisfying l.trunc<=x.trunc}
   \item{x.trunc}{vector of variables satisfying l.trunc<=x.trunc}
   \item{GOF}{if TRUE, a goodness-of-fit test statistics is computed}
+  \item{Err}{tuning parameter in the NR algorithm}
+  \item{alpha_max}{upper bound for the copula parameter}
+  \item{alpha_min}{lower bound for the copula parameter}
 }
 
 \details{Relevant paper is submitted for review}
 \value{
  \item{n }{sample size}
- \item{alpha }{alpha and its standard error}
- \item{lambda_L }{hazard of L and its standard error}
- \item{lambda_X }{hazard of X and its standard error}
- \item{nu_L }{shape parameter of L and its standard error}
- \item{nu_X }{shape parameter of X and its standard error}
+ \item{alpha }{dependence parameter}
+ \item{lambda_L }{scale parameter of L}
+ \item{lambda_X }{scale parameter of X}
+ \item{nu_L }{shape parameter of L}
+ \item{nu_X }{shape parameter of X}
+ \item{mean_X }{Mean lifetime of X, defined as E[X]}
+ \item{logL }{Maximized log-likelihood}
  \item{c }{ inclusion probability, defined by c=Pr(L<=X)}
  \item{C }{ Cramer-von Mises goodness-of-fit test statistics}
  \item{K }{ Kolmogorov-Smirnov goodness-of-fit test statistics}
 }
 \references{
-Emura T, Pan CH (2017-), Parametric likelihood inference and goodness-of-fit for dependently left-truncated data, a copula-based approach, submitted for publication.
+Emura T, Pan CH (2017-), Parametric likelihood inference and goodness-of-fit for dependently left-truncated data, a copula-based approach (in revision, Statistical Papers).
 }
 \author{Takeshi Emura}
 %% ~Make other sections like Warning with \section{Warning }{....} ~

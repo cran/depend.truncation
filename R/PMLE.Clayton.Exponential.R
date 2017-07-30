@@ -1,5 +1,5 @@
 PMLE.Clayton.Exponential <-
-function(l.trunc,x.trunc,GOF=TRUE){
+function(l.trunc,x.trunc,GOF=TRUE,Err=3,alpha_max=20,alpha_min=10^-4){
 l=l.trunc
 x=x.trunc
 
@@ -564,9 +564,9 @@ repeat{
   error2 = abs(exp(par_new[2,1])-exp(par_old[2,1]))
   error3 = abs(exp(par_new[3,1])-exp(par_old[3,1]))    
   Error1 = max(error1,error2,error3)
-  Error2 = ( Error1 > 3 | exp(par_new[1,1]) < 10^-4 | 
+  Error2 = ( Error1 > Err | exp(par_new[1,1]) < alpha_min | 
                exp(par_new[2,1]) < 10^-10 | exp(par_new[3,1]) < 10^-10 |
-               exp(par_new[1,1]) > 20 | AI/50 == floor(AI/50))    
+               exp(par_new[1,1]) > alpha_max | AI/50 == floor(AI/50))    
   e = rel_tol_func(-5)
   Error3 = try(max(eigen(hessian_func(e))$value),silent = T)
   if( Error1 <10^-4 & Error3 < 0 ) {break}
@@ -576,7 +576,7 @@ repeat{
       par_new[2,1] = log(1/mean(l)*exp(runif(1,-0.5,0.5)))
       par_new[3,1] = log(1/mean(x)*exp(runif(1,-0.5,0.5)))    
       BI=BI+1
-      if( exp(par_new[1,1]) < 20 & exp(par_new[1,1]) > 10^-4 ){break}
+      if( exp(par_new[1,1])<alpha_max & exp(par_new[1,1])>alpha_min ){break}
     }
   }
   par_old = par_new
@@ -602,14 +602,14 @@ se_alpha=exp(alpha_tuda)*sqrt(TT[1,1])
 se_lamdaL=exp(lamdaL_tuda)*sqrt(TT[2,2])
 se_lamdaX=exp(lamdaX_tuda)*sqrt(TT[3,3])
 se_mu=sqrt(TT[3,3])/lamdaX
-alpha_res = c(EST = round(alpha,3),SE = round(se_alpha,3))
-lambda_L_res = c(EST = round(lamdaL,4),SE = round(se_lamdaL,4))
-lambda_X_res = c(EST = round(lamdaX,4),SE = round(se_lamdaX,4))
-mu_res = c(EST = round(mean_X,2),SE = round(se_mu,2))
+alpha_res = c(EST=alpha,SE=se_alpha)
+lambda_L_res = c(EST=lamdaL,SE=se_lamdaL)
+lambda_X_res = c(EST=lamdaX,SE=se_lamdaX)
+mu_res = c(EST=mean_X,SE=se_mu)
 LL=-n*log(integrate(O_h_func, lower = 0, upper = 1)$value)+
   sum(log(O_pdf_func(alpha,lamdaL,lamdaX,l,x)))
-AIC_res = round(-2*LL+2*5,2)
-BIC_res = round(-2*LL+5*log(n),2)
+AIC_res=-2*LL+2*5
+BIC_res=-2*LL+5*log(n)
 
 C.test=K.test=NULL
 F_par=F_emp=prop=NULL
@@ -646,7 +646,7 @@ lines(x = c(0,1), y = c(0,1))
 
 
 list(n=n,alpha = alpha_res,lambda_L = lambda_L_res,lambda_X = lambda_X_res
-     ,mu = mu_res,logL=round(LL,2),AIC=AIC_res,BIC=BIC_res,Iteration=AI,
+     ,mean_X = mu_res,logL=round(LL,2),AIC=AIC_res,BIC=BIC_res,Iteration=AI,
      c=prop,C=C.test,K=K.test,F_empirical=F_emp,F_parametric=F_par)
 }
 

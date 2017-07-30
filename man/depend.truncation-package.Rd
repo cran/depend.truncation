@@ -18,8 +18,8 @@ Semi-parametric approaches are based on Chaieb et al. (2006), Emura et al. (2011
 \tabular{ll}{
 Package: \tab depend.truncation\cr
 Type: \tab Package\cr
-Version: \tab 2.6\cr
-Date: \tab 2017-04-21\cr
+Version: \tab 2.7\cr
+Date: \tab 2017-07-30\cr
 License: \tab GPL-2\cr
 }
 }
