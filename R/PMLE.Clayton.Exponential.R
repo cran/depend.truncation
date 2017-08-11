@@ -591,7 +591,6 @@ alpha_tuda = par_new[1,1]
 lamdaL_tuda = par_new[2,1]
 lamdaX_tuda = par_new[3,1]
 
-##Table 4 (weibull)
 alpha = exp( par_new[1,1])
 lamdaL = exp( par_new[2,1])
 lamdaX = exp( par_new[3,1])
@@ -602,10 +601,10 @@ se_alpha=exp(alpha_tuda)*sqrt(TT[1,1])
 se_lamdaL=exp(lamdaL_tuda)*sqrt(TT[2,2])
 se_lamdaX=exp(lamdaX_tuda)*sqrt(TT[3,3])
 se_mu=sqrt(TT[3,3])/lamdaX
-alpha_res = c(EST=alpha,SE=se_alpha)
-lambda_L_res = c(EST=lamdaL,SE=se_lamdaL)
-lambda_X_res = c(EST=lamdaX,SE=se_lamdaX)
-mu_res = c(EST=mean_X,SE=se_mu)
+alpha_res = c(Estimate=alpha,SE=se_alpha)
+lambda_L_res = c(Estimate=lamdaL,SE=se_lamdaL)
+lambda_X_res = c(Estimate=lamdaX,SE=se_lamdaX)
+mu_res = c(Estimate=mean_X,SE=se_mu)
 LL=-n*log(integrate(O_h_func, lower = 0, upper = 1)$value)+
   sum(log(O_pdf_func(alpha,lamdaL,lamdaX,l,x)))
 AIC_res=-2*LL+2*5

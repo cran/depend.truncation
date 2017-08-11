@@ -1,4 +1,4 @@
-ea31a7a9277158936faa1b4e8e555b4e *DESCRIPTION
+8437f16495cb0ecb881fa0c909bcf665 *DESCRIPTION
 f5841766251dc0c869d19a675b8496e3 *NAMESPACE
 09beba7cbbeaafd6dabec3b4096c82ca *R/CHAIEB.Clayton.R
 fa081a5e5b1f39e554455c4ef29645a5 *R/CHAIEB.Frank.R
@@ -8,7 +8,7 @@ e5e5c46136f25d1c7478f0c9fd93bbde *R/NPMLE.Frank.R
 83c46b71ab293b7f5f005ec001e7a836 *R/NPMLE.Indep.R
 a4bc9ce75704d7e90317a473c474f4e4 *R/NPMLE.Normal.R
 ffb900648aee9d3561fec4218d0504ce *R/NPMLE.Plackett.R
-661f5c3a4447510d2cae22be1e44d4fa *R/PMLE.Clayton.Exponential.R
+ecc73ac3801ef0f44643390d983f99fd *R/PMLE.Clayton.Exponential.R
 996d39cbcd22c97988d31a5a7924beae *R/PMLE.Clayton.Weibull.R
 f2ed2c90aeebc543cdb5f08f3dfb95f5 *R/PMLE.Normal.R
 e9983fcee1b9b5c0dccba71c6d1db52c *R/dependAFT.reg.R
@@ -25,5 +25,5 @@ ae0ff7730b1c4bf66af1c762f98b2df1 *man/PMLE.Clayton.Exponential.Rd
 4c6112490bc6984a4fdeb0a31d9a032b *man/PMLE.Clayton.Weibull.Rd
 a2d53d92104c1f76ffd8c2fb4fe0fee1 *man/PMLE.Normal.Rd
 dace902cb65b1b1d0c13cd2ad323ab7b *man/centenarian.Rd
-d86d97d0661ab19be5c34cd09fb09496 *man/depend.truncation-package.Rd
+31bcc3b9ead9a068b94edb9d59a7b727 *man/depend.truncation-package.Rd
 c542d316d8d8882197f576bf0528e43c *man/dependAFT.reg.Rd
