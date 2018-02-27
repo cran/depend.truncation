@@ -1,7 +1,7 @@
 \name{PMLE.Clayton.Weibull}
 \alias{PMLE.Clayton.Weibull}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Parametric Inference for Weibull Models with Dependent Truncation Data}
+\title{Parametric Inference for Bivariate Weibull Models with Dependent Truncation}
 \description{Maximum likelihood estimation (MLE) for dependent truncation data under 
 the Clayton copula with Weibull margins for a bivariate lifetimes (L, X). The truncated data (L_j, X_j), subject to L_j<=X_j for all j=1, ..., n,
  are used to obtain the MLE for the population parameters of (L, X).}
@@ -34,7 +34,7 @@ PMLE.Clayton.Weibull(l.trunc, x.trunc, GOF = TRUE,
  \item{K }{ Kolmogorov-Smirnov goodness-of-fit test statistics}
 }
 \references{
-Emura T, Pan CH (2017-), Parametric likelihood inference and goodness-of-fit for dependently left-truncated data, a copula-based approach (in revision, Statistical Papers).
+Emura T, Pan CH (2017), Parametric likelihood inference and goodness-of-fit for dependently left-truncated data, a copula-based approach, Statistical Papers, doi:10.1007/s00362-017-0947-z.
 }
 \author{Takeshi Emura}
 %% ~Make other sections like Warning with \section{Warning }{....} ~

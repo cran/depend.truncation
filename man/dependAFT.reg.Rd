@@ -2,10 +2,10 @@
 \alias{dependAFT.reg}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Semiparametric Inference for AFT Models with Dependent Truncation
+Semiparametric Inference for the AFT regression Model with Dependent Truncation
 }
 \description{
-Regression estimation for AFT regression models based on left-truncated and right-censored data, which is proposed by Emura and Wang (2015).
+Regression estimation for the AFT regression model based on left-truncated and right-censored data (Emura & Wang 2016).
  The dependency of truncation on lifetime is modeled through the AFT regression form.
 }
 \usage{
@@ -61,11 +61,11 @@ x1.trunc=c(
   0.21, 0.93, 0.60, 0.45, 0.41, 0.86, 0.90, 0.76, 0.93, 0.27, 0.13, 0.82, 0.17, 0.63, 0.31,
   0.13, 0.48, 0.32)
 
-### Data analysis in Emura and Wang (2015) ###
+### Data analysis in Emura & Wang (2016) ###
 # dependAFT.reg(t.trunc,y.trunc,d,x1.trunc,alpha=2,LY=TRUE,beta1_low=-5,beta1_up=5)
 dependAFT.reg(t.trunc,y.trunc,d,x1.trunc,LY=FALSE,beta1_low=-5,beta1_up=5)
 
-#### Channing hourse data analysis; Section 5 of Emura and Wang (2015) ##### 
+#### Channing hourse data analysis; Section 5 of Emura & Wang (2016) ##### 
 # library(KMsurv)
 # data(channing)
 # y.trunc=log(channing$age)

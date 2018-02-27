@@ -2,7 +2,7 @@
 \alias{NPMLE.Plackett}
 %- Also NEED an '\alias' for EACH other topic documented here.
 
-\title{Semiparametric Inference for Copula Models with Dependent Truncation Data}
+\title{Semiparametric Inference under the Plackett Copula with Dependent Truncation}
 
 \description{Nonparametric maximum likelihood estimation for dependent truncation data under 
 the Plackett copula models (Emura & Wang, 2012). The forms of the marginal distributions for X and Y are completely unspecified, but

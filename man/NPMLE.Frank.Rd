@@ -2,7 +2,7 @@
 \alias{NPMLE.Frank}
 %- Also NEED an '\alias' for EACH other topic documented here.
 
-\title{Semiparametric Inference for Copula Models with Dependent Truncation Data}
+\title{Semiparametric Inference under the Frank Copula with Dependent Truncation}
 
 \description{Nonparametric maximum likelihood estimation for dependent truncation data under 
 the Frank copula models (Emura & Wang, 2012). The forms of the marginal distributions for X and Y are completely unspecified, but

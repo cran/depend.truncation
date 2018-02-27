@@ -1,7 +1,7 @@
 \name{PMLE.Normal}
 \alias{PMLE.Normal}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Parametric Inference for Models with Dependent Truncation Data}
+\title{Parametric Inference for Bivariate Normal Models with Dependent Truncation}
 \description{Maximum likelihood estimation (MLE) for dependent truncation data under 
 the bivariate normal distribution. A bivariate normal distribution is assumed for bivariate
  random variables (L, X). The truncated data (L_j, X_j), subject to L_j<=X_j for all j=1, ..., n,

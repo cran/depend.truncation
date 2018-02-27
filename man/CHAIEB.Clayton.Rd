@@ -1,7 +1,7 @@
 \name{CHAIEB.Clayton}
 \alias{CHAIEB.Clayton}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{Semi-parametric Inference for Copula Models with Dependently Truncated Data}
+\title{Semi-parametric Inference under the Clayton Copula with Dependent Truncation}
 \description{A copula-based estimation based on dependent truncation data under 
 the Clayton copula model(Lakhal-Chaieb, Rivest & Abdous 2006; Emura & Murotani 2015).
  The forms of the marginal distributions for X and Y are completely unspecified, but

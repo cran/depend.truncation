@@ -2,24 +2,21 @@
 \alias{depend.truncation-package}
 \alias{depend.truncation}
 \docType{package}
-\title{Statistical Inference for Parametric and Semiparametric Models Based on Dependently Truncated Data}
+\title{Statistical Methods for the Analysis of Dependently Truncated Data}
 \description{
-Suppose that one can observe bivariate random variables (X, Y) only when X<=Y holds.
-Data (Xj, Yj), subject to Xj<=Yj, for all j=1,...,n, are called truncated data
- (or truncation data).
- This package performs parametric and semiparametric 
-inference methods for models on (X, Y) where X and Y are not independent.
-Semi-parametric approaches are based on Chaieb et al. (2006), Emura et al. (2011), Emura and Wang (2012) and Emura and Murotani (2015). Parametric approaches are based on Emura and Konno (2012).
- A regression approach is based on Emura and Wang (2016).
- This package also includes truncated data on the number of deaths at each year (1963-1980) for Japanese male centenarians (Emura and Murotani 2015). 
+ Estimation and testing methods for dependently truncated data.
+ Semi-parametric methods are based on Emura et al. (2011), Emura & Wang (2012), and Emura & Murotani (2015).
+ Parametric approaches are based on Emura & Konno (2012) and Emura & Pan (2017).
+ A regression approach is based on Emura & Wang (2016). Quasi-independence tests are based on Emura & Wang (2010).
+ Right-truncated data for Japanese male centenarians are given by Emura & Murotani (2015).
 }
 
 \details{
 \tabular{ll}{
 Package: \tab depend.truncation\cr
 Type: \tab Package\cr
-Version: \tab 2.7\cr
-Date: \tab 2017-08-11\cr
+Version: \tab 3.0\cr
+Date: \tab 2018-02-27\cr
 License: \tab GPL-2\cr
 }
 }
@@ -27,7 +24,7 @@ License: \tab GPL-2\cr
 Takeshi Emura <takeshiemura@gmail.com>
 }
 \references{
-Chaieb L, Rivest LP, Abdous B (2006), Estimating Survival Under a Dependent Truncation, Biometrika 93: 655-669.
+Emura T, Wang W (2010), Testing quasi-independence for truncation data. Journal of Multivariate Analysis 101, 223-239.
 
 Emura T, Wang W, Hung HN (2011), Semiparametric Inference for Copula Models for Truncated Data, Stat Sinica 21: 349-367.
 
@@ -39,4 +36,6 @@ Emura T, Wang W (2012), Nonparametric Maximum Likelihood Estimation for Dependen
 Emura T, Murotani K (2015), An Algorithm for Estimating Survival Under a Copula-based Dependent Truncation Model, TEST 24 (No.4): 734-751.
 
 Emura T, Wang W (2016), Semiparametric Inference for an Accelerated Failure Time Model with Dependent Truncation, Ann Inst Stat Math 68 (5): 1073-94.
+
+Emura T, Pan CH (2017), Parametric likelihood inference and goodness-of-fit for dependently left-truncated data, a copula-based approach, Statistical Papers, doi:10.1007/s00362-017-0947-z.
 }
